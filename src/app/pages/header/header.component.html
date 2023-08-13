@@ -24,17 +24,17 @@
                            
                         </a>
                         <div class="dropdown-menu login-form">
-                            <form id="loginform" *ngIf="!loggedin">
+                            <form #loginform="ngForm" (ngSubmit)="validate_login(loginform.value)" *ngIf="!loggedin">
                                 <div class="form-group">
                                     <label>Username</label>
-                                    <input type="text" class="form-control" required="required" id="username" name="username">
+                                    <input type="text" class="form-control" required="required" ngModel id="username" name="username">
                                 </div>
                                 <div class="form-group">
                                     <div class="clearfix">
                                     <label>Password</label>
                                     <a href="#" class="float-right text-muted"><small>Forgot?</small></a>
                                     </div>                            
-                                    <input type="password" class="form-control" required="required" id="password" name="password">
+                                    <input type="password" class="form-control" required="required" ngModel id="password" name="password">
                                 </div>
                                 
                                 <div class="clearfix">
