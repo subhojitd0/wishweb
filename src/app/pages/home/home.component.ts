@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../shared/services/service';
 import { Category_API } from '../../../shared/services/api.url-helper';
+import { shareDataService } from '../../../shared/services/share.service';
 
 export interface category {
   id: string;
@@ -21,7 +22,9 @@ export class HomeComponent implements OnInit{
 
   category: category[] = [];
 
-    constructor(private apiservice:ApiService) {}
+    constructor(private apiservice:ApiService, private sharedataservice:shareDataService) {
+      this.sharedataservice.sharedata='home';
+    }
     
     ngOnInit(){
         let data='{"mode":0}';
