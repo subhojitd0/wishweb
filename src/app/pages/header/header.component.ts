@@ -1,8 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { Category_API } from '../../../shared/services/api.url-helper';
 import { ApiService } from '../../../shared/services/service';
 import {Login_API} from '../../../shared/services/api.url-helper';
 import { shareDataService } from 'src/shared/services/share.service';
+
+export interface category {
+  id: string;
+  name: string;
+  rts: string;
+  image: string;
+}
 
 
 @Component({
@@ -11,17 +19,28 @@ import { shareDataService } from 'src/shared/services/share.service';
   styleUrls: ['./header.component.css']
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
+
+  category: category[] = [];
   loggedin:boolean=false;
   loc:any;
+  submenu:boolean=false;
 
   constructor(private apiservice:ApiService, public sharedataservice:shareDataService){
     let isloggedin = localStorage.getItem('wishlogin'); 
     if(isloggedin && isloggedin == "1"){
       this.loggedin=true;
     }
-    
+    this.submenu=false;
+  }
 
+  ngOnInit(){
+    let data='{"mode":0}';
+    this.apiservice.post(Category_API,data).subscribe((resp:any)=>{
+      const category:category[]=resp.result;
+      this.category=category;
+      
+    })
   }
 
   validate_login(data:any){
@@ -39,6 +58,13 @@ export class HeaderComponent {
     this.loggedin==false;
     localStorage.clear();
     window.location.reload();
+  }
+
+  showsubmenu(){
+    if(this.submenu==false)
+      this.submenu=true;
+    else
+      this.submenu=false;
   }
 
 }
