@@ -60,11 +60,22 @@ export class HeaderComponent implements OnInit{
     window.location.reload();
   }
 
-  showsubmenu(){
-    if(this.submenu==false)
-      this.submenu=true;
-    else
-      this.submenu=false;
+  showsubmenu(data:any){
+    if(data && data.target.id==="menushow") {
+      
+    if(this.submenu==false || data.target.nextSibling.style.display==="none"){
+     this.submenu=true; 
+     data.target.nextSibling.style.display = "block";
+     }
+     else{
+     this.submenu=false;
+     data.target.nextSibling.style.display = "none";
+     }
+    }
+    
   }
 
 }
+
+
+

@@ -62,12 +62,12 @@
                     </li>
 
                     <li class="nav-item" [class.active]="sharedataservice.sharedata==='category'">
-                        <a class="nav-link" id="menushow" style='cursor:pointer;' (click)="showsubmenu()">
+                        <a class="nav-link" id="menushow" style='cursor:pointer;' (click)="showsubmenu($event)">
                           Category
                         </a>
                         <div id="submenu" class="dropdown-content" [ngStyle]="submenu===true?{'display':'block'}:{'display':'none'}">
                             <div *ngFor="let c of category">
-                                <a routerLink="category/{{c.id}}" (click)="showsubmenu()">{{c.name}}</a>
+                                <a routerLink="category/{{c.id}}" (click)="showsubmenu($event)">{{c.name}}</a>
                             </div>
                         </div>
                     </li>
