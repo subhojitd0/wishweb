@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { Category_API, Product_API } from 'src/shared/services/api.url-helper';
 import { ApiService } from 'src/shared/services/service';
 import { shareDataService } from 'src/shared/services/share.service';
@@ -38,12 +38,18 @@ export class CategoryComponent implements OnInit {
 
   constructor(private activatedRoute:ActivatedRoute, private sharedataservice:shareDataService, private apiservice:ApiService){
     this.sharedataservice.sharedata='category';
+    
   }
 
   ngOnInit(): void {
-    this.categoryid=this.activatedRoute.snapshot.paramMap.get('id');
+    //this.categoryid=this.activatedRoute.snapshot.paramMap.get('id');
 
-    let data='{"mode":0, "categoryid":'+this.categoryid+'}';
+    this.activatedRoute.paramMap.subscribe(param=>{
+      this.categoryid=param.get('id');
+      //console.warn(this.categoryid);
+
+
+      let data='{"mode":0, "categoryid":'+this.categoryid+'}';
       this.apiservice.post(Product_API,data).subscribe((resp:any)=>{
         const prod:product[]=resp.result;
         this.product=prod;
@@ -55,7 +61,8 @@ export class CategoryComponent implements OnInit {
         this.category=category;
       })
 
-
+    })
+    
     
     }
 
