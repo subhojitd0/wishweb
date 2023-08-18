@@ -25,13 +25,15 @@ export class HeaderComponent implements OnInit{
   loggedin:boolean=false;
   loc:any;
   submenu:boolean=false;
+  searchval:any;
 
-  constructor(private apiservice:ApiService, public sharedataservice:shareDataService){
+  constructor(private apiservice:ApiService, public sharedataservice:shareDataService, public router:Router){
     let isloggedin = localStorage.getItem('wishlogin'); 
     if(isloggedin && isloggedin == "1"){
       this.loggedin=true;
     }
     this.submenu=false;
+    
   }
 
   ngOnInit(){
@@ -41,6 +43,8 @@ export class HeaderComponent implements OnInit{
       this.category=category;
       
     })
+
+  
   }
 
   validate_login(data:any){
@@ -73,6 +77,11 @@ export class HeaderComponent implements OnInit{
      }
     }
     
+  }
+
+
+  gotoSearch(val:any){
+    this.router.navigate(['search/',val])
   }
 
 }

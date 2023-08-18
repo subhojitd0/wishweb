@@ -7,12 +7,12 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    				<span class=""></span>
     				</button>
-
-                    <img src='https://wishwings.in/images/logo-main.png' width="40%" style="margin-left:20px;">
-
+                    <a href="/">
+                        <img src='https://wishwings.in/images/logo-main.png' width="40%" style="margin-left:20px;">
+                    </a>
                 </div>
                 <div class="col-xs-6 col-sm-7 navbar-brand" style="text-align:left; margin-top:30px;">
-                    <input type="text" width="100%" class="searchbox" placeholder="Search ......" id='searchbox'>
+                    <input type="text" width="100%" class="searchbox" placeholder="Search ......" id='searchbox' #search (keyup.enter)="gotoSearch(search.value)">
 
 
                     <span id="login">
@@ -58,7 +58,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav  ">
                     <li class="nav-item" [class.active]="sharedataservice.sharedata==='home'">
-                        <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item" [class.active]="sharedataservice.sharedata==='category'">

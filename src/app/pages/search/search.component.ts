@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Category_API, Product_API } from 'src/shared/services/api.url-helper';
 import { ApiService } from 'src/shared/services/service';
 import { shareDataService } from 'src/shared/services/share.service';
+
 
 
 export interface product {
@@ -23,47 +24,42 @@ export interface product {
 }
 
 
+
 @Component({
-  selector: 'app-category',
-  templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
 
 
-export class CategoryComponent implements OnInit {
+export class SearchComponent implements OnInit {
 
-  categoryid:any;
   product:any;
-  category:any;
+  searchkey:any;
 
   constructor(private activatedRoute:ActivatedRoute, private sharedataservice:shareDataService, private apiservice:ApiService){
     this.sharedataservice.sharedata='category';
   }
 
+
+
   ngOnInit(): void {
-    //this.categoryid=this.activatedRoute.snapshot.paramMap.get('id');
+
 
     this.activatedRoute.paramMap.subscribe(param=>{
-      this.categoryid=param.get('id');
-      //console.warn(this.categoryid);
-
-
-      let data='{"mode":0, "categoryid":'+this.categoryid+'}';
+      this.searchkey=param.get('data');
+   
+  
+      let data='{"mode":4, "search":"'+this.searchkey+'"}';
+      console.warn(data);
       this.apiservice.post(Product_API,data).subscribe((resp:any)=>{
         const prod:product[]=resp.result;
         this.product=prod;
       });
-
-      let datacat='{"mode":3, "categoryid":'+this.categoryid+'}';
-      this.apiservice.post(Category_API,datacat).subscribe((resp:any)=>{
-        const category=resp.result;
-        this.category=category;
-      })
-
     })
     
-    
-    }
 
-  
+  }
+
 }
+

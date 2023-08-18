@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn:'root',
@@ -6,8 +7,7 @@ import {Injectable} from '@angular/core';
 
 export class shareDataService {
 
-  constructor() {} 
-
- public sharedata:string='';
+  public sharedata:string='';
 
 }
+
