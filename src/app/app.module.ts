@@ -8,7 +8,8 @@ import { FooterComponent } from './pages/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import { CategoryComponent } from './pages/category/category.component';
-import { SearchComponent } from './pages/search/search.component'
+import { SearchComponent } from './pages/search/search.component';
+import { ProductComponent } from './pages/product/product.component'
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SearchComponent } from './pages/search/search.component'
     FooterComponent,
     HomeComponent,
     CategoryComponent,
-    SearchComponent
+    SearchComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

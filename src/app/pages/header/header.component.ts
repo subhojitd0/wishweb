@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit{
     let isloggedin = localStorage.getItem('wishlogin'); 
     if(isloggedin && isloggedin == "1"){
       this.loggedin=true;
+      this.sharedataservice.logincheck='1';
     }
     this.submenu=false;
     
@@ -61,6 +62,7 @@ export class HeaderComponent implements OnInit{
   logout(){
     this.loggedin==false;
     localStorage.clear();
+    this.sharedataservice.logincheck='';
     window.location.reload();
   }
 

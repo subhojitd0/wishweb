@@ -8,19 +8,19 @@
             <div class="product-card" *ngFor="let p of product">
                 <div class="badge">Hot</div>
                 <div class="product-tumb">
-                    <a href="productdetails.php?product">
+                    <a routerLink="../../product/{{p.id}}">
                         <img src="{{p.img1}}" alt="">
                     </a>
                 </div>
                 <div class="product-details">
                     <span class="product-catagory">{{p.category}}</span>
                     <h4>
-                        <a href="productdetails.php?product">
+                        <a routerLink="../../product/{{p.id}}">
                             {{p.name}}
                         </a>
                     </h4>
                     <div class="product-bottom-details">
-                        <div class="product-price"><small>{{p.price}}</small> {{p.price}}
+                        <div class="product-price"><small>{{1.30*p.price}}</small> {{p.price}}
                         </div>
                         <div class="product-links">
                             <!--<a href=""><i class="fa fa-heart"></i></a>-->
