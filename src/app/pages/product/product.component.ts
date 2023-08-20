@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product_API } from 'src/shared/services/api.url-helper';
+import { Cart_API, Product_API } from 'src/shared/services/api.url-helper';
 import { ApiService } from 'src/shared/services/service';
 import { shareDataService } from 'src/shared/services/share.service';
 
@@ -34,10 +34,12 @@ export class ProductComponent implements OnInit {
   logincheck:any;
   productid:any;
   product:any;
+  userid:any;
 
   constructor(private activatedRoute:ActivatedRoute, private sharedataservice:shareDataService, private apiservice:ApiService){
     this.sharedataservice.sharedata='category';
-    this.logincheck=this.sharedataservice.logincheck;
+    this.logincheck=localStorage.getItem('wishlogin'); 
+    this.userid=localStorage.getItem('wishuseremail'); 
   }
 
   ngOnInit(): void {
@@ -52,5 +54,18 @@ export class ProductComponent implements OnInit {
       });
 
     })
+  }
+
+  addtocart(){
+
+    let data='{"mode":1, "productid":'+this.productid+', "user":"'+this.userid+'"}';
+    this.apiservice.post(Cart_API,data).subscribe((resp:any)=>{
+      const success:string=resp.success;
+      if(success=='1')
+        console.log('Product Added');
+      if(success=='4')
+        console.warn('No More Product Available to Add');
+    });
+
   }
 }

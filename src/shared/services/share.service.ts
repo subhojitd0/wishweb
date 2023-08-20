@@ -8,6 +8,5 @@ import {BehaviorSubject, Observable } from 'rxjs';
 export class shareDataService {
 
   public sharedata:string='';
-  public logincheck:any;
 }
 

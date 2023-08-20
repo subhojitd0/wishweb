@@ -31,7 +31,6 @@ export class HeaderComponent implements OnInit{
     let isloggedin = localStorage.getItem('wishlogin'); 
     if(isloggedin && isloggedin == "1"){
       this.loggedin=true;
-      this.sharedataservice.logincheck='1';
     }
     this.submenu=false;
     
@@ -53,6 +52,8 @@ export class HeaderComponent implements OnInit{
       if(resp.result.email!=''){
         this.loggedin==true
         localStorage.setItem('wishlogin', "1");
+        localStorage.setItem('wishuseremail', resp.result.email);
+        localStorage.setItem('wishusername', resp.result.name);
         window.location.reload();
       }
       
@@ -62,7 +63,6 @@ export class HeaderComponent implements OnInit{
   logout(){
     this.loggedin==false;
     localStorage.clear();
-    this.sharedataservice.logincheck='';
     window.location.reload();
   }
 
