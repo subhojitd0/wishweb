@@ -4,6 +4,8 @@ import { Category_API } from '../../../shared/services/api.url-helper';
 import { ApiService } from '../../../shared/services/service';
 import {Login_API} from '../../../shared/services/api.url-helper';
 import { shareDataService } from 'src/shared/services/share.service';
+import { ToastrService } from 'ngx-toastr';
+import { delay } from 'rxjs';
 
 export interface category {
   id: string;
@@ -27,7 +29,7 @@ export class HeaderComponent implements OnInit{
   submenu:boolean=false;
   searchval:any;
 
-  constructor(private apiservice:ApiService, public sharedataservice:shareDataService, public router:Router){
+  constructor(private apiservice:ApiService, public sharedataservice:shareDataService, public router:Router,private toastr: ToastrService){
     let isloggedin = localStorage.getItem('wishlogin'); 
     if(isloggedin && isloggedin == "1"){
       this.loggedin=true;
@@ -50,20 +52,27 @@ export class HeaderComponent implements OnInit{
   validate_login(data:any){
       this.apiservice.post(Login_API,JSON.stringify(data)).subscribe((resp:any)=>{
       if(resp.result.email!=''){
+        this.toastr.success('Logged In', 'Login',{
+          closeButton:true
+        });
         this.loggedin==true
         localStorage.setItem('wishlogin', "1");
         localStorage.setItem('wishuseremail', resp.result.email);
         localStorage.setItem('wishusername', resp.result.name);
+        
         window.location.reload();
+        
+        
       }
       
      })
   }
 
   logout(){
+    this.toastr.error('Logged Out');
     this.loggedin==false;
     localStorage.clear();
-    window.location.reload();
+    window.location.href='/';
   }
 
   showsubmenu(data:any){

@@ -10,6 +10,10 @@ import {AppRoutingModule} from './app-routing.module';
 import { CategoryComponent } from './pages/category/category.component';
 import { SearchComponent } from './pages/search/search.component';
 import { ProductComponent } from './pages/product/product.component'
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { ProductComponent } from './pages/product/product.component'
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot()
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
