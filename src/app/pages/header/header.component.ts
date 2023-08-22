@@ -64,6 +64,11 @@ export class HeaderComponent implements OnInit{
         
         
       }
+      else{
+        this.toastr.error('Invalid Credentials or User ID not available.', 'Login',{
+          closeButton:true
+        })
+      }
       
      })
   }
