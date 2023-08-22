@@ -5,7 +5,7 @@ import { ApiService } from '../../../shared/services/service';
 import {Login_API} from '../../../shared/services/api.url-helper';
 import { shareDataService } from 'src/shared/services/share.service';
 import { ToastrService } from 'ngx-toastr';
-import { delay } from 'rxjs';
+import { TreeNode } from 'primeng/api';
 
 export interface category {
   id: string;
@@ -28,6 +28,9 @@ export class HeaderComponent implements OnInit{
   loc:any;
   submenu:boolean=false;
   searchval:any;
+  sidebarVisible:boolean=false;
+  files!: TreeNode[];
+  selectedFile!: TreeNode;
 
   constructor(private apiservice:ApiService, public sharedataservice:shareDataService, public router:Router,private toastr: ToastrService){
     let isloggedin = localStorage.getItem('wishlogin'); 

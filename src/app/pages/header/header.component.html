@@ -1,14 +1,31 @@
+<div hl-sticky="">
+    <h2 (click)="sidebarVisible = true" class="hamburg">&#9776;
+    </h2>
+</div>
+
+
+
 <div class="hero_area">
     <!-- header section strats -->
-    <header class="header_section">
+    <header class="header_section" style="position: relative;">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
             <div class="row">
+                <p-sidebar [(visible)]="sidebarVisible">
+                    <h3>Sidebar</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+
+                </p-sidebar>
+
+
+
                 <div class="col-xs-6 col-sm-5 navbar-brand">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    				<span class=""></span>
     				</button>
                     <a href="/">
-                        <img src='https://wishwings.in/images/logo-main.png' width="40%" style="margin-left:20px;">
+                        <img src='https://wishwings.in/images/logo-main.png' width="40%" style="margin-left:100px;">
                     </a>
                 </div>
                 <div class="col-xs-6 col-sm-7 navbar-brand" style="text-align:left; margin-top:30px;">

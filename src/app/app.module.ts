@@ -13,7 +13,9 @@ import { ProductComponent } from './pages/product/product.component'
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { SidebarModule } from 'primeng/sidebar';
+import {ButtonModule} from 'primeng/button';
+import { TreeModule } from 'primeng/tree';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     CommonModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    SidebarModule,
+    ButtonModule,
+    TreeModule
     
   ],
   providers: [],

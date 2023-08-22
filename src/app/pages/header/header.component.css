@@ -1,3 +1,9 @@
+.hamburg {
+    padding: 10px 0px 0px 20px;
+    position: absolute;
+    cursor: pointer;
+}
+
 .searchbox {
     width: 80%;
     box-sizing: border-box;
