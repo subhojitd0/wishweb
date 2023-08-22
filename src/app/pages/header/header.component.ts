@@ -38,7 +38,6 @@ export class HeaderComponent implements OnInit{
       this.loggedin=true;
     }
     this.submenu=false;
-    
   }
 
   ngOnInit(){
@@ -96,6 +95,10 @@ export class HeaderComponent implements OnInit{
      }
     }
     
+  }
+
+  sidebarToggle(){
+    this.sidebarVisible=true;
   }
 
 

@@ -1,5 +1,5 @@
 <div hl-sticky="">
-    <h2 (click)="sidebarVisible = true" class="hamburg">&#9776;
+    <h2 (click)="sidebarToggle()" class="hamburg">&#9776;
     </h2>
 </div>
 
@@ -10,11 +10,13 @@
     <header class="header_section" style="position: relative;">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
             <div class="row">
-                <p-sidebar [(visible)]="sidebarVisible">
-                    <h3>Sidebar</h3>
+                <p-sidebar [(visible)]="sidebarVisible" position="left">
+                    <h3>Gift Gallery</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
+                        Give Your loved once the personalized token of love. Check from our wide variety of options.</p>
+                    <div *ngFor="let c of category">
+                        <button class="btn btn-block btn-danger">{{c.name}}</button><br>
+                    </div>
 
                 </p-sidebar>
 
