@@ -1,4 +1,4 @@
-<div>
+<div class="sticky">
     <h2 (click)="sidebarToggle()" class="hamburg">&#9776;
     </h2>
 </div>
@@ -11,23 +11,31 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
             <div class="row">
                 <p-sidebar [(visible)]="sidebarVisible" position="left">
-                    <h3>Gift Gallery</h3>
+                    <h3><span style='color:red'>Wishweb</span> Gallery</h3>
                     <p>
-                        Give Your loved once the personalized token of love. Check from our wide variety of options.</p>
-                    <div *ngFor="let c of category">
-                        <button class="btn btn-block btn-danger">{{c.name}}</button><br>
-                    </div>
+                        For your loved ones.</p>
+
+                    <p-tree class="w-full md:w-30rem" [value]="sidebarcategory">
+                        <ng-template let-node pTemplate="url">
+                            <a [routerLink]="node.data">{{ node.label }}</a>
+                        </ng-template>
+                        <ng-template let-node pTemplate="default">
+                            <b>{{ node.label }}</b>
+                        </ng-template>
+                    </p-tree>
 
                 </p-sidebar>
 
 
 
                 <div class="col-xs-6 col-sm-5 navbar-brand">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    				<span class=""></span>
-    				</button>
+                    <!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    				    <span class=""></span>
+    				    </button>
+                    -->
+                    <span style="margin-left: 90px;"></span>
                     <a href="/">
-                        <img src='https://wishwings.in/images/logo-main.png' width="40%" style="margin-left:100px;">
+                        <img src='https://wishwings.in/images/logo-main.png' width="40%">
                     </a>
                 </div>
                 <div class="col-xs-6 col-sm-7 navbar-brand" style="text-align:left; margin-top:30px;">

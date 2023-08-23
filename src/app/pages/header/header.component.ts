@@ -24,6 +24,7 @@ export interface category {
 export class HeaderComponent implements OnInit{
 
   category: category[] = [];
+  sidebarcategory: any= [];
   loggedin:boolean=false;
   loc:any;
   submenu:boolean=false;
@@ -41,6 +42,14 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(){
+    let sidebardata='{"mode":5}';
+    this.apiservice.post(Category_API,sidebardata).subscribe((resp:any)=>{
+      //const category:category[]=resp.result;
+      const sidebarcategory=resp.result;
+      this.sidebarcategory=sidebarcategory;
+      
+    })
+
     let data='{"mode":0}';
     this.apiservice.post(Category_API,data).subscribe((resp:any)=>{
       const category:category[]=resp.result;
@@ -99,6 +108,10 @@ export class HeaderComponent implements OnInit{
 
   sidebarToggle(){
     this.sidebarVisible=true;
+  }
+
+  showSubCat(val:any){
+
   }
 
 
