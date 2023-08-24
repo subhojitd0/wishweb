@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { Category_API } from '../../../shared/services/api.url-helper';
+import { Category_API, Occasion_API } from '../../../shared/services/api.url-helper';
 import { ApiService } from '../../../shared/services/service';
 import {Login_API} from '../../../shared/services/api.url-helper';
 import { shareDataService } from 'src/shared/services/share.service';
@@ -14,6 +14,12 @@ export interface category {
   image: string;
 }
 
+export interface occasion {
+  id: string;
+  name: string;
+  display: string;
+}
+
 
 @Component({
   selector: 'app-header',
@@ -24,10 +30,12 @@ export interface category {
 export class HeaderComponent implements OnInit{
 
   category: category[] = [];
+  occasion:occasion[]=[];
   sidebarcategory: any= [];
   loggedin:boolean=false;
   loc:any;
   submenu:boolean=false;
+  submenuocc:boolean=false;
   searchval:any;
   sidebarVisible:boolean=false;
   files!: TreeNode[];
@@ -54,6 +62,13 @@ export class HeaderComponent implements OnInit{
     this.apiservice.post(Category_API,data).subscribe((resp:any)=>{
       const category:category[]=resp.result;
       this.category=category;
+      
+    })
+
+    let occasiondata='{"mode":0}';
+    this.apiservice.post(Occasion_API,occasiondata).subscribe((resp:any)=>{
+      const occasion:occasion[]=resp.result;
+      this.occasion=occasion;
       
     })
 
@@ -103,7 +118,23 @@ export class HeaderComponent implements OnInit{
      data.target.nextSibling.style.display = "none";
      }
     }
-    
+  
+  }
+
+
+  showsubmenuocc(data:any){
+    if(data && data.target.id==="menushowocc") {
+      // this.submenuocc=true; 
+    if(this.submenuocc==false || data.target.nextSibling.style.display==="none"){
+     this.submenuocc=true; 
+     data.target.nextSibling.style.display = "block";
+     }
+     else{
+     this.submenuocc=false;
+     data.target.nextSibling.style.display = "none";
+     }
+     }
+  
   }
 
   sidebarToggle(){
