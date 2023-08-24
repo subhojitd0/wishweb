@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import { Category_API, Product_API } from 'src/shared/services/api.url-helper';
+import { Category_API, Occasion_API, Product_API } from 'src/shared/services/api.url-helper';
 import { ApiService } from 'src/shared/services/service';
 import { shareDataService } from 'src/shared/services/share.service';
 
@@ -45,20 +45,34 @@ export class CategoryComponent implements OnInit {
 
     this.activatedRoute.paramMap.subscribe(param=>{
       this.categoryid=param.get('id');
-      //console.warn(this.categoryid);
+      
+
+      if(this.categoryid.length<3){
+          let data='{"mode":0, "categoryid":'+this.categoryid+'}';
+          this.apiservice.post(Product_API,data).subscribe((resp:any)=>{
+          const prod:product[]=resp.result;
+          this.product=prod;
+        });
 
 
-      let data='{"mode":0, "categoryid":'+this.categoryid+'}';
-      this.apiservice.post(Product_API,data).subscribe((resp:any)=>{
-        const prod:product[]=resp.result;
-        this.product=prod;
-      });
+          let datacat='{"mode":3, "categoryid":'+this.categoryid+'}';
+          this.apiservice.post(Category_API,datacat).subscribe((resp:any)=>{
+          const category=resp.result;
+          this.category=category;
+        })
+      }
+      else{
+        
+          let data='{"mode":4, "occasion":"'+this.categoryid+'"}';
+          this.apiservice.post(Occasion_API,data).subscribe((resp:any)=>{
+          const prod:product[]=resp.result;
+          this.product=prod;
 
-      let datacat='{"mode":3, "categoryid":'+this.categoryid+'}';
-      this.apiservice.post(Category_API,datacat).subscribe((resp:any)=>{
-        const category=resp.result;
-        this.category=category;
-      })
+          this.category={'name':"Occasion Special - "+this.categoryid};
+        });
+      }
+
+      
 
     })
     

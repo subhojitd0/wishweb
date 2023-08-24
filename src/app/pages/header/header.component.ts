@@ -51,15 +51,14 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit(){
     let sidebardata='{"mode":5}';
-    this.apiservice.post(Category_API,sidebardata).subscribe((resp:any)=>{
-      //const category:category[]=resp.result;
+      this.apiservice.post(Category_API,sidebardata).subscribe((resp:any)=>{
       const sidebarcategory=resp.result;
       this.sidebarcategory=sidebarcategory;
       
     })
 
     let data='{"mode":0}';
-    this.apiservice.post(Category_API,data).subscribe((resp:any)=>{
+      this.apiservice.post(Category_API,data).subscribe((resp:any)=>{
       const category:category[]=resp.result;
       this.category=category;
       
