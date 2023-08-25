@@ -38,7 +38,7 @@ export class ProductComponent implements OnInit {
   userid:any;
 
   constructor(private activatedRoute:ActivatedRoute, private sharedataservice:shareDataService, private apiservice:ApiService,private toastr: ToastrService){
-    this.sharedataservice.sharedata='category';
+    //this.sharedataservice.sharedata='category';
     this.logincheck=localStorage.getItem('wishlogin'); 
     this.userid=localStorage.getItem('wishuseremail'); 
   }

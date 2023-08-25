@@ -37,7 +37,7 @@ export class CategoryComponent implements OnInit {
   category:any;
 
   constructor(private activatedRoute:ActivatedRoute, private sharedataservice:shareDataService, private apiservice:ApiService){
-    this.sharedataservice.sharedata='category';
+    
   }
 
   ngOnInit(): void {
@@ -60,6 +60,8 @@ export class CategoryComponent implements OnInit {
           const category=resp.result;
           this.category=category;
         })
+
+        this.sharedataservice.sharedata='category';
       }
       else{
         
@@ -70,6 +72,8 @@ export class CategoryComponent implements OnInit {
 
           this.category={'name':"Occasion Special - "+this.categoryid};
         });
+
+        this.sharedataservice.sharedata='occasion';
       }
 
       
