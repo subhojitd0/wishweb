@@ -1,0 +1,33 @@
+<section class="shop_section gap layout_padding">
+
+    <br><br>
+    <div class="container">
+
+        <h1 class="h3 mb-5">Enter the Code sent to your Mail ID</h1>
+        <br>
+        <p> Check the Spam folder, in case it is not shown in the Inbox.</p>
+        <br>
+        <br>
+
+        <form id="validatecode" #valreg="ngForm" (ngSubmit)="validatecode(valreg)">
+
+            <input type="text" required class="form-control" id="vrfy" name="vrfy" ngModel aria-describedby="vrfy" placeholder="Enter Registration Code">
+            <br>
+            <br>
+            <br>
+            <br>
+            <input class="btn btn-success btn-lg btn-block" type="submit" value='Validate'>
+
+
+
+        </form>
+
+    </div>
+
+    <br><br><br><br>
+
+
+
+
+
+</section>

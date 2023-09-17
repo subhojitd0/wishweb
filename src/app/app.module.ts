@@ -16,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarModule } from 'primeng/sidebar';
 import {ButtonModule} from 'primeng/button';
 import { TreeModule } from 'primeng/tree';
+import { RegisterComponent } from './pages/register/register.component';
+import { RegvalidateComponent } from './pages/regvalidate/regvalidate.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { TreeModule } from 'primeng/tree';
     HomeComponent,
     CategoryComponent,
     SearchComponent,
-    ProductComponent
+    ProductComponent,
+    RegisterComponent,
+    RegvalidateComponent
   ],
   imports: [
     BrowserModule,

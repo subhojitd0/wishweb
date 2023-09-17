@@ -1,0 +1,53 @@
+<section class="shop_section layout_padding">
+    <div class='container'><br><br><br>
+        <form id='register' #regform="ngForm" (ngSubmit)="register(regform.value)">
+            <h3>Register to <u>Wish<span style="color:red;">w</span>ings</u></h3>
+            <br>
+            <br>
+            <div class='row'>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="text" required class="form-control" id="name" name="name" ngModel aria-describedby="name" placeholder="Enter Name">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Contact Details</label>
+                    <input type="text" required class="form-control" id="phone" name="phone" ngModel aria-describedby="phone" placeholder="Enter Phone" pattern="[1-9][0-9]{9}" title="Enter valid 10 Digit Number">
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class="form-group col-md-12">
+                    <label for="exampleInputEmail1">Email ID</label>
+                    <input type="email" class="form-control" id="regemail" name="regemail" ngModel aria-describedby="email" placeholder="Enter email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Enter Valid Email ID">
+                    <small id="email" required class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+
+
+            </div>
+
+            <div class='row'>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Password</label>
+                    <input type="password" required class="form-control" id="regpassword" name="regpassword" ngModel aria-describedby="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+                    <small id="password" class="form-text text-muted">Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters</small>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Confirm Password</label>
+                    <input type="password" required class="form-control" id="cpassword" name="cpassword" ngModel aria-describedby="cpassword" placeholder="Confirm password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+
+                </div>
+            </div>
+            <br>
+            <div class='row'>
+                <div class="form-group col-md-12">
+                    <small id="password" class="form-text text-muted">All Fields Are Mandetory to Fill</small>
+                    <input class="btn btn-success btn-lg btn-block" type="submit" value='Register' *ngIf="!pageload">
+                    <h3 style="text-align:center; color: green;" *ngIf="banner">Wait....... Processing the Registration request.</h3>
+                    <a class="btn btn-block btn-success" routerLink="../validate" *ngIf="regsuccess">Login to your Account</a>
+                </div>
+            </div>
+        </form>
+    </div><br><br>
+</section>
