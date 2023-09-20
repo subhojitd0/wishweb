@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { HOME_URL } from 'src/shared/constants/constant';
 import { ValidateRegister_API } from 'src/shared/services/api.url-helper';
 import { ApiService } from 'src/shared/services/service';
 import { shareDataService } from 'src/shared/services/share.service';
@@ -40,7 +39,7 @@ export class RegvalidateComponent {
             this.toastr.success('Validation Successful', 'Registered!',{
               closeButton:true
             }); 
-            window.location.href=HOME_URL;
+            window.location.href="../";
             //this.router.navigate(['/']);
           }
         });
