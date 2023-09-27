@@ -7,6 +7,8 @@ import { SearchComponent } from "./pages/search/search.component";
 import { ProductComponent } from "./pages/product/product.component";
 import { RegisterComponent } from "./pages/register/register.component";
 import { RegvalidateComponent } from "./pages/regvalidate/regvalidate.component";
+import { CartComponent } from "./pages/cart/cart.component";
+import { PasswordgenComponent } from "./pages/passwordgen/passwordgen.component";
 
 const appRoutes : Routes=[
     {path:'',  component:HomeComponent},
@@ -14,7 +16,9 @@ const appRoutes : Routes=[
     {path:'search/:data',component:SearchComponent},
     {path:'product/:id',component:ProductComponent},
     {path:'register', component:RegisterComponent},
-    {path:'validate', component:RegvalidateComponent}
+    {path:'validate', component:RegvalidateComponent},
+    {path:'cart',component:CartComponent},
+    {path:'forgetpassword',component:PasswordgenComponent}
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { Category_API, Occasion_API } from '../../../shared/services/api.url-helper';
+import { Cart_API, Category_API, Occasion_API } from '../../../shared/services/api.url-helper';
 import { ApiService } from '../../../shared/services/service';
 import {Login_API} from '../../../shared/services/api.url-helper';
 import { shareDataService } from 'src/shared/services/share.service';
@@ -40,6 +40,7 @@ export class HeaderComponent implements OnInit{
   sidebarVisible:boolean=false;
   files!: TreeNode[];
   selectedFile!: TreeNode;
+  cartinfo:any;
 
   constructor(private apiservice:ApiService, public sharedataservice:shareDataService, public router:Router,private toastr: ToastrService){
     let isloggedin = localStorage.getItem('wishlogin'); 
@@ -70,6 +71,14 @@ export class HeaderComponent implements OnInit{
       this.occasion=occasion;
       
     })
+
+
+        let datacart='{"mode":0,"user":"'+localStorage.getItem('wishuseremail')+'"}';
+        this.apiservice.post(Cart_API,datacart).subscribe((resp:any)=>{
+        const respcart=resp.meta;
+        this.cartinfo=respcart;
+        this.sharedataservice.cartcount=this.cartinfo.count;
+        });
 
   
   }
@@ -148,6 +157,9 @@ export class HeaderComponent implements OnInit{
   gotoSearch(val:any){
     this.router.navigate(['search/',val])
   }
+
+
+  
 
 }
 

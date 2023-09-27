@@ -18,6 +18,8 @@ import {ButtonModule} from 'primeng/button';
 import { TreeModule } from 'primeng/tree';
 import { RegisterComponent } from './pages/register/register.component';
 import { RegvalidateComponent } from './pages/regvalidate/regvalidate.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { PasswordgenComponent } from './pages/passwordgen/passwordgen.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { RegvalidateComponent } from './pages/regvalidate/regvalidate.component'
     SearchComponent,
     ProductComponent,
     RegisterComponent,
-    RegvalidateComponent
+    RegvalidateComponent,
+    CartComponent,
+    PasswordgenComponent
   ],
   imports: [
     BrowserModule,

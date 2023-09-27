@@ -68,6 +68,7 @@ export class ProductComponent implements OnInit {
         this.toastr.success('Product Added Succesfully','Added to Cart', {
           tapToDismiss: true,
         });
+        this.sharedataservice.cartcount=this.sharedataservice.cartcount+1;
       }
       if(success=='4'){
         console.warn('No More Product Available to Add');

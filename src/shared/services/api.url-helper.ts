@@ -5,3 +5,4 @@ export const Cart_API = "cart.php";
 export const Occasion_API="occasion.php";
 export const Register_API="register.php";
 export const ValidateRegister_API="validate.php";
+export const ForgetPass_API="forgetpass.php";
