@@ -1,0 +1,47 @@
+<section class="shop_section layout_padding">
+    <div class='container'><br><br><br>
+        <form id='register'>
+            <h3>Welcome <u><span style="color:red;">{{name}}</span></u></h3>
+            <br>
+            <br>
+            <div class='row'>
+                
+                <div class="form-group col-md-12">
+                    <label for="exampleInputEmail1">Contact Details</label>
+                    <input type="text" required class="form-control" id="phone" name="phone" [(ngModel)]="phone"  aria-describedby="phone" placeholder="Enter Phone" pattern="[1-9][0-9]{9}" title="Enter valid 10 Digit Number" value="{{phone}}">
+                </div>
+            </div>
+
+
+            <div class='row'>
+                <div class="form-group col-md-12">
+                    <label for="exampleInputEmail1">Address</label>
+                    <input type="text" required class="form-control" id="address" name="address" [(ngModel)]="address"  aria-describedby="address" placeholder="Enter Address" value="{{address}}">
+                    <small id="email" required class="form-text text-muted">This Address will be used in your invoices.</small>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Pin Code</label>
+                    <input type="text" required class="form-control" id="pin" name="pin" [(ngModel)]="pin"  aria-describedby="pin" placeholder="Pin Code" value="{{pin}}">
+
+                </div>
+                <div class="form-group col-md-6">   
+                    <label for="exampleInputEmail1">Email ID</label>
+                    <input type="email" class="form-control" id="regemail" name="regemail" ngModel aria-describedby="email" placeholder="Enter email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Enter Valid Email ID" value="{{email}}" disabled>
+                    
+                </div>
+            </div>
+
+            <br>
+            <div class='row'>
+                <div class="form-group col-md-12">
+                    
+                    <button class="btn btn-success btn-lg btn-block" (click)="updateprofile()">Update Details</button>
+                    
+                </div>
+            </div>
+        </form>
+    </div><br><br>
+</section>

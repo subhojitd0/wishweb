@@ -71,7 +71,7 @@
                             </form>	
                             <div *ngIf="loggedin">
                                 <a routerLink="cart" class="btn btn-success btn-block"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;My Cart ({{sharedataservice.cartcount}})</a>
-                                <a href="" class="btn btn-success btn-block"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;Edit Profile</a>
+                                <a routerLink="profile" class="btn btn-success btn-block"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;Edit Profile</a>
                                 <hr>
                                 <button class="btn btn-danger btn-block" id="logout" (click)="logout();"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Logout</button>
                             </div>

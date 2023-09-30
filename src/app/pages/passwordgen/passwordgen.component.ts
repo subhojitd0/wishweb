@@ -63,7 +63,7 @@ export class PasswordgenComponent {
   validateotp(){
     if(this.otp!='' && this.regpass!=''){
       let data='{"mode":1,"userid":"'+this.name+'","otp":"'+this.otp+'","passwd":"'+this.regpass+'"}';
-      console.log(data);
+      //console.log(data);
       this.apiservice.post(ForgetPass_API,data).subscribe((resp:any)=>{
       const response=resp.result.success;
       this.res=response;

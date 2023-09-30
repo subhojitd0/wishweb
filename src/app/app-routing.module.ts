@@ -9,6 +9,7 @@ import { RegisterComponent } from "./pages/register/register.component";
 import { RegvalidateComponent } from "./pages/regvalidate/regvalidate.component";
 import { CartComponent } from "./pages/cart/cart.component";
 import { PasswordgenComponent } from "./pages/passwordgen/passwordgen.component";
+import { ProfileComponent } from "./pages/profile/profile.component";
 
 const appRoutes : Routes=[
     {path:'',  component:HomeComponent},
@@ -18,7 +19,8 @@ const appRoutes : Routes=[
     {path:'register', component:RegisterComponent},
     {path:'validate', component:RegvalidateComponent},
     {path:'cart',component:CartComponent},
-    {path:'forgetpassword',component:PasswordgenComponent}
+    {path:'forgetpassword',component:PasswordgenComponent},
+    {path:'profile',component:ProfileComponent}
 ];
 
 @NgModule({

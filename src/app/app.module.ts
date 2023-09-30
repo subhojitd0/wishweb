@@ -20,6 +20,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { RegvalidateComponent } from './pages/regvalidate/regvalidate.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { PasswordgenComponent } from './pages/passwordgen/passwordgen.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PasswordgenComponent } from './pages/passwordgen/passwordgen.component'
     RegisterComponent,
     RegvalidateComponent,
     CartComponent,
-    PasswordgenComponent
+    PasswordgenComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
