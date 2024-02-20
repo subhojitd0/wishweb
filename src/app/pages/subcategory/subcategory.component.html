@@ -1,0 +1,34 @@
+<section class="shop_section layout_padding hero_area">
+    <div class="container">
+        <div class="heading_container heading_center"><br><br>
+           
+            <h2>{{category.name}}</h2>
+        </div>
+        <div class="row">
+            <div class="product-card" *ngFor="let p of product">
+                <div class="badge">Hot</div>
+                <div class="product-tumb">
+                    <a routerLink="../../product/{{p.id}}">
+                        <img src="{{p.img1}}" alt="">
+                    </a>
+                </div>
+                <div class="product-details">
+                    <span class="product-catagory">{{p.category}}</span>
+                    <h4>
+                        <a routerLink="../../product/{{p.id}}">
+                            {{p.name}}
+                        </a>
+                    </h4>
+                    <div class="product-bottom-details">
+                        <div class="product-price"><small>{{1.30*p.price}}</small> {{p.price}}
+                        </div>
+                        <div class="product-links">
+                            <!--<a href=""><i class="fa fa-heart"></i></a>-->
+                            <a href=""><i class="fa fa-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

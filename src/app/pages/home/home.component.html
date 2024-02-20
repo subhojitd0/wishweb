@@ -5,12 +5,12 @@
                 <div class="carousel-inner">
 
 
-                    <div class="carousel-item active">
+                    <div class="carousel-item" *ngFor="let s of slider; index as i" [class.active]="i===0">
                         <div class="container-fluid">
                             <div class="row">
                                 <div>
-                                    <a href='https://www.wishwings.in/productdetails.php?product=74'>
-                                        <img src="https://www.wishwings.in/images/banner/Banner1.png" width='100%' height="80%" alt="" />
+                                    <a href='https://www.wishwings.in/category.php?category={{s.category}}'>
+                                        <img src="https://www.wishwings.in/images/banner/{{s.name}}" width='100%' height="80%" alt="" />
                                     </a>
                                 </div>
                             </div>
@@ -18,71 +18,6 @@
                     </div>
 
 
-                    <div class="carousel-item">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div>
-                                    <a href=''>
-                                        <img src="https://www.wishwings.in/images/banner/Banner2b.png" width='100%' height="80%" alt="" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="carousel-item">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div>
-                                    <a href='https://www.wishwings.in/category.php?category=2'>
-                                        <img src="https://www.wishwings.in/images/banner/Banner2.png" width='100%' height="80%" alt="" />
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="carousel-item">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div>
-                                    <a href=''>
-                                        <img src="https://www.wishwings.in/images/banner/Banner3.png" width='100%' height="80%" alt="" />
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div>
-                                    <a href='https://wa.me/+918420110121?text=Hello, I want to enquire on Bulk Order'>
-                                        <img src="https://www.wishwings.in/images/banner/Banner4.png" width='100%' height="80%" alt="" />
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div>
-                                    <a href='https://wa.me/+918420110121?text=Hello, I want to enquire on Wishwings and Know a bit more details on the Gift items.'>
-                                        <img src="https://www.wishwings.in/images/banner/Banner5.png" width='100%' height="80%" alt="" />
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
                 <div class="carousel_btn-box">
@@ -117,7 +52,8 @@
             </h2>
         </div>
 
-        <div class="row">
+        <div class="cont">
+        <div class="row flex-row flex-nowrap">
             <div *ngFor="let c of category" class="item col-md-2">
                 <a routerLink='/category/{{c.id}}'>
                     <img src="https://wishwings.in/images/category/{{c.image}}" alt="Mug" class="imgstyle"><br>
@@ -125,6 +61,9 @@
                 </a>
             </div>
         </div>
+        </div>
+
+
     </div>
 </section>
 

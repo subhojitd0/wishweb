@@ -10,6 +10,7 @@ import { RegvalidateComponent } from "./pages/regvalidate/regvalidate.component"
 import { CartComponent } from "./pages/cart/cart.component";
 import { PasswordgenComponent } from "./pages/passwordgen/passwordgen.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
+import { SubcategoryComponent } from "./pages/subcategory/subcategory.component";
 
 const appRoutes : Routes=[
     {path:'',  component:HomeComponent},
@@ -20,7 +21,8 @@ const appRoutes : Routes=[
     {path:'validate', component:RegvalidateComponent},
     {path:'cart',component:CartComponent},
     {path:'forgetpassword',component:PasswordgenComponent},
-    {path:'profile',component:ProfileComponent}
+    {path:'profile',component:ProfileComponent},
+    {path:'subcategory/:id',component:SubcategoryComponent}
 ];
 
 @NgModule({

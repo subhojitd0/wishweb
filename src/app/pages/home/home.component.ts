@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../shared/services/service';
-import { Category_API } from '../../../shared/services/api.url-helper';
+import { Category_API, Slider_API } from '../../../shared/services/api.url-helper';
 import { shareDataService } from '../../../shared/services/share.service';
 
 export interface category {
@@ -8,6 +8,13 @@ export interface category {
   name: string;
   rts: string;
   image: string;
+}
+
+export interface slider {
+  id: string;
+  name: string;
+  occassion:string;
+  category:string;
 }
 
 @Component({
@@ -21,6 +28,7 @@ export interface category {
 export class HomeComponent implements OnInit{
 
   category: category[] = [];
+  slider:slider[]=[];
 
     constructor(private apiservice:ApiService, private sharedataservice:shareDataService) {
       this.sharedataservice.sharedata='home';
@@ -28,11 +36,22 @@ export class HomeComponent implements OnInit{
     
     ngOnInit(){
         let data='{"mode":0}';
+        let sldata='{"mode":0}';
+
         this.apiservice.post(Category_API,data).subscribe((resp:any)=>{
           const category:category[]=resp.result;
           this.category=category;
           
         })
+
+        this.apiservice.post(Slider_API,sldata).subscribe((resp:any)=>{
+          const slider:slider[]=resp.result;
+          this.slider=slider;
+          
+        })
+
+
+
       }
       
  

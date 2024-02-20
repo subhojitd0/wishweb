@@ -21,6 +21,7 @@ import { RegvalidateComponent } from './pages/regvalidate/regvalidate.component'
 import { CartComponent } from './pages/cart/cart.component';
 import { PasswordgenComponent } from './pages/passwordgen/passwordgen.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { SubcategoryComponent } from './pages/subcategory/subcategory.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     RegvalidateComponent,
     CartComponent,
     PasswordgenComponent,
-    ProfileComponent
+    ProfileComponent,
+    SubcategoryComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,9 @@
+ @media (min-width:700px)
+ {
  .hero_area {
      padding: 0 45px;
  }
+}
  
  .hero_area.sub_pages {
      height: auto;
@@ -146,6 +149,21 @@
      font-size: 14px;
  }
  
+
+ .flex-nowrap {
+    -webkit-flex-wrap: nowrap!important;
+    -ms-flex-wrap: nowrap!important;
+    flex-wrap: nowrap!important;
+    overflow-x: auto;
+}
+.flex-row {
+    display:flex;
+    -webkit-box-orient: horizontal!important;
+    -webkit-box-direction: normal!important;
+    -webkit-flex-direction: row!important;
+    -ms-flex-direction: row!important;
+    flex-direction: row!important;
+}
  .shop_section .heading_container {
      margin-bottom: 20px;
  }
@@ -252,7 +270,7 @@
  
  .imgstyle {
      border-radius: 50%;
-     width: 80%;
+     width: 100px;
      padding: 2%;
  }
  
