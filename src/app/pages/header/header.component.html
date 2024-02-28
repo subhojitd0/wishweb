@@ -11,9 +11,9 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
             <div class="row">
                 <p-sidebar [(visible)]="sidebarVisible" position="left">
-                    <h3><span style='color:red'>Wishweb</span> Gallery</h3>
+                    <h3><span style='color:red'>Wishwings</span> Gallery</h3>
                     <p>
-                        For your loved ones.</p>
+                        customized gifts and branding</p>
 
                     <p-tree class="w-full md:w-30rem" [value]="sidebarcategory">
                         <ng-template let-node pTemplate="url">
@@ -109,7 +109,7 @@
                         </a>
                         <div id="submenuocc" class="dropdown-content" [ngStyle]="submenuocc===true?{'display':'block'}:{'display':'none'}">
                             <div *ngFor="let o of occasion">
-                                <a routerLink="category/Rakhi" (click)="showsubmenuocc($event)">{{o.name}}</a>
+                                <a routerLink="category/{{o.name}}" (click)="showsubmenuocc($event)">{{o.name}}</a>
                             </div>
                         </div>
                     </li>
