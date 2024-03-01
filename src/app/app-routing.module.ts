@@ -11,6 +11,7 @@ import { CartComponent } from "./pages/cart/cart.component";
 import { PasswordgenComponent } from "./pages/passwordgen/passwordgen.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
 import { SubcategoryComponent } from "./pages/subcategory/subcategory.component";
+import { CommonModule } from "@angular/common";
 
 const appRoutes : Routes=[
     {path:'',  component:HomeComponent},
@@ -26,7 +27,7 @@ const appRoutes : Routes=[
 ];
 
 @NgModule({
-    imports:[RouterModule.forRoot(appRoutes)],
+    imports:[RouterModule.forRoot(appRoutes,  { useHash: true }), CommonModule],
     exports:[RouterModule]
 })
 
