@@ -36,16 +36,36 @@ export class SearchComponent implements OnInit {
 
   product:any;
   searchkey:any;
+  m=5;
 
   constructor(private activatedRoute:ActivatedRoute, private sharedataservice:shareDataService, private apiservice:ApiService){
     this.sharedataservice.sharedata='category';
+  }
+
+  filterSelection(val:any){
+
+    if(val=='LH') this.m=9;else this.m=10;
+
+    this.activatedRoute.paramMap.subscribe(param=>{
+      this.searchkey=param.get('data');
+   
+  
+      let data='{"mode":"'+this.m+'", "search":"'+this.searchkey+'"}';
+      console.warn(data);
+      this.apiservice.post(Product_API,data).subscribe((resp:any)=>{
+        const prod:product[]=resp.result;
+        this.product=prod;
+      });
+    })
+
+
   }
 
 
 
   ngOnInit(): void {
 
-
+    this.m=5;
     this.activatedRoute.paramMap.subscribe(param=>{
       this.searchkey=param.get('data');
    

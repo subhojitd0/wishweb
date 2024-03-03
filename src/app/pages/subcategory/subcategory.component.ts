@@ -68,7 +68,8 @@ export class SubcategoryComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(param=>{
       this.subcategoryid=param.get('id');
       
-
+    this.m=0;
+    
       if(this.subcategoryid.length<3){
           let data='{"mode":6, "categoryid":'+this.subcategoryid+'}';
           this.apiservice.post(Product_API,data).subscribe((resp:any)=>{

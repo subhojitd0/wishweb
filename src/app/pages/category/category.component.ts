@@ -79,6 +79,8 @@ export class CategoryComponent implements OnInit {
 
     this.activatedRoute.paramMap.subscribe(param=>{
       this.categoryid=param.get('id');
+
+      this.m=0;
       
 
       if(this.categoryid.length<3){

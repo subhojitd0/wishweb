@@ -2,6 +2,11 @@
     <div class="container">
         <div class="heading_container heading_center"><br><br>
             <h2>Search Result For {{searchkey}}</h2>
+
+            <div class="buttons">
+                <button class="button" [class.activea]="m===9" (click)="filterSelection('LH')">Price Low to High</button>
+                <button class="button" [class.activea]="m===10" (click)="filterSelection('HL')">Price High to Low</button>
+            </div>
         </div>
         <div class="row">
             <div class="product-card" *ngFor="let p of product">

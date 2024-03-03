@@ -66,9 +66,16 @@
                             <h4 style="color:red;">Out Of Stock</h4><br>
                         </div>
                         <div class="action" *ngIf="logincheck">
+                            <a href="https://wa.me/+918420110121?text=Hello, I want to enquire on {{product.name}}" target="_blank" class="go-to-cart btn btn-success" type="button" id="gotc"><i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp;&nbsp;Order Here</a>
+                        </div>
+                        <div class="action" *ngIf="!logincheck">
+                            <h2>Please Login to order this item</h2>
+                        </div>
+
+                        <!-- <div class="action" *ngIf="logincheck">
                             <button class="add-to-cart btn btn-default" type="button" id="addtocart" (click)="addtocart()">Add to Cart</button>
                             <a routerLink="../../cart" class="go-to-cart btn btn-success" type="button" id="gotocart">Go to Cart</a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
