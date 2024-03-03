@@ -3,6 +3,14 @@
         <div class="heading_container heading_center"><br><br>
            
             <h2>{{category.name}}</h2>
+
+            
+            <div class="buttons">
+                <button class="button" [class.activea]="m===7" (click)="filterSelection('LH')">Price Low to High</button>
+                <button class="button" [class.activea]="m===8" (click)="filterSelection('HL')">Price High to Low</button>
+            </div>
+
+
         </div>
         <div class="row">
             <div class="product-card" *ngFor="let p of product">

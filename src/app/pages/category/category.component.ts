@@ -35,9 +35,43 @@ export class CategoryComponent implements OnInit {
   categoryid:any;
   product:any;
   category:any;
+  m=0;
 
   constructor(private activatedRoute:ActivatedRoute, private sharedataservice:shareDataService, private apiservice:ApiService){
     
+  }
+
+
+  filterSelection(val:any){
+
+    if(val=='LH') this.m=1;else this.m=2;
+
+      if(this.categoryid.length<3){
+        let data='{"mode":'+this.m+', "categoryid":'+this.categoryid+'}';
+        this.apiservice.post(Product_API,data).subscribe((resp:any)=>{
+        const prod:product[]=resp.result;
+        this.product=prod;
+        });
+
+
+        let datacat='{"mode":3, "categoryid":'+this.categoryid+'}';
+        this.apiservice.post(Category_API,datacat).subscribe((resp:any)=>{
+        const category=resp.result;
+        this.category=category;
+        })
+
+        this.sharedataservice.sharedata='category';
+      }
+      else{
+      
+        let data='{"mode":4, "filter":"'+this.m+'", "occasion":"'+this.categoryid+'"}';
+        this.apiservice.post(Occasion_API,data).subscribe((resp:any)=>{
+        const prod:product[]=resp.result;
+        this.product=prod;
+          this.category={'name':"Occasion Special - "+this.categoryid};
+        });
+        this.sharedataservice.sharedata='occasion';
+      }
   }
 
   ngOnInit(): void {

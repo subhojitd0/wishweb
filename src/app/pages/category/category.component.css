@@ -10,6 +10,37 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+
+  .button {
+    transition: all .2s ease-in-out;
+    -webkit-appearance: none;
+    border-radius: 100px;
+    font-family: inherit;
+    appearance: none;
+    background: none;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 20px;
+    outline: none;
+    opacity: 0.4;
+    border: none;
+    color: #000000;
+  }
+  
+  .button:hover,
+  .button.active {
+    opacity: 1;
+  }
+.buttons{
+    align-items: center;
+    display: flex;
+}
+.activea{
+    color:red;
+    text-decoration:underline;
+}
+
 a {
     text-decoration: none;
 }

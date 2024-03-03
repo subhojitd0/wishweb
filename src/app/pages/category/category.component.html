@@ -1,9 +1,22 @@
 <section class="shop_section layout_padding hero_area">
+
+  
+
+
     <div class="container">
         <div class="heading_container heading_center"><br><br>
             <h2 *ngIf="categoryid===0">All Category</h2>
             <h2 *ngIf="categoryid!=0">{{category.name}}</h2>
+
+            <div class="buttons" *ngIf="categoryid.length<3">
+                <button class="button" [class.activea]="m===1" (click)="filterSelection('LH')">Price Low to High</button>
+                <button class="button" [class.activea]="m===2" (click)="filterSelection('HL')">Price High to Low</button>
+            </div>
         </div>
+        
+    
+        
+
         <div class="row">
             <div class="product-card" *ngFor="let p of product">
                 <div class="badge">Hot</div>

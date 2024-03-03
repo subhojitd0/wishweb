@@ -33,8 +33,32 @@ export class SubcategoryComponent implements OnInit {
   subcategoryid:any;
   product:any;
   category:any;
+  m=0;
 
   constructor(private activatedRoute:ActivatedRoute, private sharedataservice:shareDataService, private apiservice:ApiService){
+    
+  }
+
+
+
+  
+  filterSelection(val:any){
+
+    if(val=='LH') this.m=7;else this.m=8;
+
+    
+      let data='{"mode":'+this.m+', "categoryid":'+this.subcategoryid+'}';
+      this.apiservice.post(Product_API,data).subscribe((resp:any)=>{
+      const prod:product[]=resp.result;
+      this.product=prod;
+    });
+
+      let datacat='{"mode":3,"categoryid":'+this.subcategoryid+'}';
+      this.apiservice.post(Subcategory_API,datacat).subscribe((resp:any)=>{
+      const category=resp.result;
+      this.category=category;
+    })
+    //this.sharedataservice.sharedata='category';
     
   }
 
