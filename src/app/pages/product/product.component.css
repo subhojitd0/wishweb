@@ -98,12 +98,7 @@ img {
     flex-direction: column;
 }
 
-.colors {
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-}
+
 
 .product-title,
 .price,
@@ -111,6 +106,24 @@ img {
 .colors {
     text-transform: UPPERCASE;
     font-weight: bold;
+}
+
+.size{
+    border: 2px solid;
+    padding:5px;
+}
+
+.activesel{
+    background-color:#296f42;
+}
+
+.rst{
+ margin-left:50px;
+ padding: 1.2em 1.5em;
+    border: none;
+    text-transform: UPPERCASE;
+    font-weight: bold;
+    background-color: rgb(218, 168, 102);
 }
 
 .checked,
@@ -162,7 +175,14 @@ img {
     color: #fff;
     -webkit-transition: background .3s ease;
     transition: background .3s ease;
-    ;
+    
+}
+
+.disabled {
+   
+    opacity: 0.6;
+    cursor: not-allowed;
+ 
 }
 
 .add-to-cart,

@@ -21,7 +21,14 @@ export interface product {
   img4:string;
   available:string;
   quantity:string;
-  priority:string
+  priority:string;
+  class:string;
+}
+
+export interface classification {
+  id: string;
+  name: string;
+  classification:string;
 }
 
 
@@ -36,6 +43,8 @@ export class ProductComponent implements OnInit {
   productid:any;
   product:any;
   userid:any;
+  classification:any;
+  selectedsize:any="";
 
   constructor(private activatedRoute:ActivatedRoute, private sharedataservice:shareDataService, private apiservice:ApiService,private toastr: ToastrService){
     //this.sharedataservice.sharedata='category';
@@ -49,9 +58,16 @@ export class ProductComponent implements OnInit {
       this.productid=param.get('id');
 
       let data='{"mode":4, "productid":'+this.productid+'}';
+      let dataclass='{"mode":11, "productid":'+this.productid+'}';
+
       this.apiservice.post(Product_API,data).subscribe((resp:any)=>{
         const prod:product[]=resp.result;
         this.product=prod;
+      });
+
+      this.apiservice.post(Product_API,dataclass).subscribe((resp:any)=>{
+        const classif:classification[]=resp.result;
+        this.classification=classif;
       });
 
     })
@@ -79,4 +95,13 @@ export class ProductComponent implements OnInit {
     });
 
   }
+
+  selectsize(val:any){
+    this.selectedsize=val;
+  }
+
+  reset(){
+    this.selectedsize='';
+  }
+
 }

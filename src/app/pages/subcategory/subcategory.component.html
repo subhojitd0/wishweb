@@ -24,7 +24,7 @@
                     <span class="product-catagory">{{p.category}}</span>
                     <h4>
                         <a routerLink="../../product/{{p.id}}">
-                            {{p.name}}
+                            {{p.name}}<span *ngIf="p.subcategory!=0"> - {{p.subcategory}}</span>
                         </a>
                     </h4>
                     <div class="product-bottom-details">
