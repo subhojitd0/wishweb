@@ -1,0 +1,30 @@
+<section class="shop_section layout_padding hero_area">
+
+  
+
+
+    <div class="container">
+        <div class="heading_container heading_center"><br><br>
+            <h2>Personalized Category</h2>
+        </div>
+        
+    
+        <div class="row">
+            <div class="product-card" *ngFor="let c of category">
+                <div class="badge">Hot</div>
+                <div class="product-tumb">
+                    <a routerLink="../category/{{c.id}}">
+                        <img src="https://wishwings.in/images/category/{{c.image}}" alt="" class="imgstyle">
+                    </a>
+                </div>
+                <div class="product-details">
+                    <span class="product-catagory">{{c.name}}</span>
+                    <h4>
+                        <a routerLink="../category/{{c.id}}">{{c.name}}</a>
+                    </h4>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

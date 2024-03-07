@@ -22,6 +22,8 @@ import { CartComponent } from './pages/cart/cart.component';
 import { PasswordgenComponent } from './pages/passwordgen/passwordgen.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SubcategoryComponent } from './pages/subcategory/subcategory.component';
+import { CorporateComponent } from './pages/corporate/corporate.component';
+import { PersonalComponent } from './pages/personal/personal.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { SubcategoryComponent } from './pages/subcategory/subcategory.component'
     CartComponent,
     PasswordgenComponent,
     ProfileComponent,
-    SubcategoryComponent
+    SubcategoryComponent,
+    CorporateComponent,
+    PersonalComponent
   ],
   imports: [
     BrowserModule,

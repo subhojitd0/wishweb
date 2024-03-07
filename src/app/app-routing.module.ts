@@ -12,6 +12,8 @@ import { PasswordgenComponent } from "./pages/passwordgen/passwordgen.component"
 import { ProfileComponent } from "./pages/profile/profile.component";
 import { SubcategoryComponent } from "./pages/subcategory/subcategory.component";
 import { CommonModule } from "@angular/common";
+import { CorporateComponent } from "./pages/corporate/corporate.component";
+import { PersonalComponent } from "./pages/personal/personal.component";
 
 const appRoutes : Routes=[
     {path:'',  component:HomeComponent},
@@ -23,7 +25,9 @@ const appRoutes : Routes=[
     {path:'cart',component:CartComponent},
     {path:'forgetpassword',component:PasswordgenComponent},
     {path:'profile',component:ProfileComponent},
-    {path:'subcategory/:id',component:SubcategoryComponent}
+    {path:'subcategory/:id',component:SubcategoryComponent},
+    {path:'corporate', component:CorporateComponent},
+    {path:'personal',component:PersonalComponent}
 ];
 
 @NgModule({
