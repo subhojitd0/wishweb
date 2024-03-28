@@ -1,7 +1,8 @@
 .hamburg {
     padding: 10px 0px 0px 10px;
-    position: absolute;
+    position: sticky;
     cursor: pointer;
+    z-index: 1;
 }
 
 .sticky {
@@ -9,6 +10,7 @@
     position: sticky;
     top: 0;
     font-size: 20px;
+    
 }
 
 .searchbox {
@@ -100,7 +102,8 @@
 /*header section*/
 
 .hero_area {
-    padding: 0 45px;
+    padding: 0px 45px;
+    
 }
 
 .hero_area.sub_pages {
@@ -161,6 +164,7 @@ a:focus {
 .navbar-brand {
     margin: 15px 0;
     padding: 0;
+    
 }
 
 .navbar-brand span {
